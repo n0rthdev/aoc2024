@@ -1,4 +1,4 @@
-# Advent of Code 2023 in Kotlin
+# Advent of Code 2024 in Kotlin
 
 ## Setup
 - Clone this repository from https://github.com/martinweu/aoc2023/tree/skeleton
