@@ -173,9 +173,12 @@ data class Vector3D(val x: Long, val y: Long, val z: Long) {
         val Directions2d = DirectionsX + DirectionsY
         val Directions3d = DirectionsX + DirectionsY + DirectionsZ
 
-        val Directions2dWithDiagonals = Directions2d + DirectionsX.flatMap { x -> DirectionsY.map { y -> x + y } }
+        val Diagonals2d = DirectionsX.flatMap { x -> DirectionsY.map { y -> x + y } }
+        val Diagonals3d = DirectionsX.flatMap { x -> DirectionsY.flatMap { y -> DirectionsZ.map { z -> x + y + z } } }
+
+        val Directions2dWithDiagonals = Directions2d + Diagonals2d
         val Directions3dWithDiagonals =
-            Directions3d + DirectionsX.flatMap { x -> DirectionsY.flatMap { y -> DirectionsZ.map { z -> x + y + z } } }
+            Directions3d + Diagonals3d
 
 
         fun fromString(str: String, separator: String = ",", dim: Int = 3): Vector3D {
