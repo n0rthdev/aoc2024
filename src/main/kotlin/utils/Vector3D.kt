@@ -139,6 +139,10 @@ data class Vector3D(val x: Long, val y: Long, val z: Long) {
 
     fun dot(other: Vector3D) = x * other.x + y * other.y + z * other.z
 
+    fun turnRight2d() = Vector3D(y, -x, z)
+
+    fun turnLeft2d() = Vector3D(-y, x, z)
+
 
     companion object {
         fun min(a : Vector3D, b: Vector3D) = Vector3D(Math.min(a.x,b.x),Math.min(a.y, b.y),Math.min(a.z,b.z))
